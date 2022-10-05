@@ -1,0 +1,133 @@
+/* Christine Bui
+09-25-2020
+COP 3223C Lecture 2 Assignment */
+
+// Part I
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    time_t now;
+    now = time(NULL);                   // calculates the number of seconds from January 1, 1970
+    
+    int SEC, SIH, SID, SIW, SIM, SIY;
+    SEC = 60;       // seconds
+    SIH = SEC*60;   // seconds to hours
+    SID = SIH*24;   // seconds to days
+    SIW = SID*7;    // seconds to weeks
+    SIM = (int)((double)SID*30.42);     // seconds to months
+    SIY = SID*365;                      // seconds to years
+
+    double years, months, weeks, days, hours;
+    years = ((double)now/SIY);
+    months = (((double)(now%SIY))/SIM);
+    weeks = ((double)(((now%SIY))%SIM)/SIW);
+    days = ((((((now%SIY))%SIM)%SIW))/SID);
+    hours = ((double)((((((now%SIY))%SIM)%SIW))%SID))/SIH;
+    printf("It has been %ld years, %ld months, %ld weeks, %ld days, %ld hours from January 1, 1970\n", (int)years, (int)months, (int)weeks, (int)days, (int)hours);
+
+    return(0);
+    }
+    
+// Part II
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int number;
+    printf("Enter a number between 0 and 20:\n");
+    scanf("%d", &number);
+    switch(number){
+    
+    case 1: 
+          printf("You entered: I\n");
+          break;
+    case 2:
+          printf("You entered: II\n");
+          break;
+    case 3:
+          printf("You entered: III\n");
+          break;
+    case 4:
+          printf("You entered: IV\n");
+          break;
+    case 5: 
+          printf("You entered: V\n");
+          break;
+    case 6: 
+          printf("You entered: VI\n");
+          break;
+    case 7: 
+          printf("You entered: VII\n"); 
+          break;
+    case 8: 
+          printf("You entered: VIII\n");
+          break;
+    case 9: 
+          printf("You entered: IX\n");
+          break; 
+    case 10:
+          printf("You entered: X\n");
+          break;
+    case 11:
+          printf("You entered: XI\n");
+          break;
+    case 12:
+          printf("You entered: XII\n");
+          break;
+    case 13:
+          printf("You entered: XIII\n");
+          break;
+    case 14:
+          printf("You entered: XIV\n");
+          break;
+    case 15:
+          printf("You entered: XV\n");
+          break;
+    case 16:
+          printf("You entered: XVI\n");
+          break;
+    case 17:
+          printf("You entered: XVII\n"); 
+          break;
+    case 18: 
+          printf("You entered: XVIII\n");
+          break;
+    case 19:
+          printf("You entered: XIX\n"); // roman numeral for 19
+          break;
+    case 20:
+          printf("You entered XX\n"); // roman numeral for 20
+    default:
+          exit(-1);
+    }
+
+    return(0);
+    
+    }
+    
+// Part III
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int myRandomNumber;
+    srand(time(NULL));        // seed the random number generator
+    myRandomNumber = rand();  // each time you call this function, there will be a different random number
+    printf("The random number is %d.\n", myRandomNumber);
+    
+    if(myRandomNumber % 2 == 0)           // tells us if the random number is even or odd
+          printf("%d is even.\n", myRandomNumber);
+    else
+          printf("%d is odd.\n", myRandomNumber);
+
+    if(myRandomNumber % 3 == 0)
+          printf("%d is divisible by 3.\n", myRandomNumber);
+    if(myRandomNumber % 10 == 0)
+          printf("%d is divisible by 10.\n", myRandomNumber);
+
+    return 0;
+
+    }
